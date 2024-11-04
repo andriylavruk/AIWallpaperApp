@@ -28,12 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            textBoxPrompt = new TextBox();
+            btnGenerate = new Button();
+            picBox = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picBox).BeginInit();
+            SuspendLayout();
+            // 
+            // textBoxPrompt
+            // 
+            textBoxPrompt.Location = new Point(236, 61);
+            textBoxPrompt.Name = "textBoxPrompt";
+            textBoxPrompt.PlaceholderText = "Enter your prompt";
+            textBoxPrompt.Size = new Size(220, 23);
+            textBoxPrompt.TabIndex = 0;
+            // 
+            // btnGenerate
+            // 
+            btnGenerate.Location = new Point(462, 61);
+            btnGenerate.Name = "btnGenerate";
+            btnGenerate.Size = new Size(75, 23);
+            btnGenerate.TabIndex = 1;
+            btnGenerate.Text = "Generate";
+            btnGenerate.UseVisualStyleBackColor = true;
+            btnGenerate.Click += btnGenerate_Click;
+            // 
+            // picBox
+            // 
+            picBox.Location = new Point(151, 90);
+            picBox.Name = "picBox";
+            picBox.Size = new Size(475, 303);
+            picBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            picBox.TabIndex = 2;
+            picBox.TabStop = false;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(picBox);
+            Controls.Add(btnGenerate);
+            Controls.Add(textBoxPrompt);
+            Name = "Form1";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)picBox).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private TextBox textBoxPrompt;
+        private Button btnGenerate;
+        private PictureBox picBox;
     }
 }
