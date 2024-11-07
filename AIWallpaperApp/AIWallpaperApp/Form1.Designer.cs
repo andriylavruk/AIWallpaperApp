@@ -42,9 +42,11 @@
             textBoxPrompt.PlaceholderText = "Enter your prompt";
             textBoxPrompt.Size = new Size(293, 23);
             textBoxPrompt.TabIndex = 0;
+            textBoxPrompt.TextChanged += textBoxPrompt_TextChanged;
             // 
             // btnGenerate
             // 
+            btnGenerate.Enabled = false;
             btnGenerate.Location = new Point(450, 61);
             btnGenerate.Name = "btnGenerate";
             btnGenerate.Size = new Size(85, 23);

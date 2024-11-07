@@ -17,12 +17,6 @@ public partial class Form1 : Form
     private async void btnGenerate_Click(object sender, EventArgs e)
     {
         var prompt = textBoxPrompt.Text;
-
-        if (string.IsNullOrEmpty(prompt))
-        {
-            return;
-        }
-
         var response = await _imageService.GenerateImageAsync(prompt);
 
         if (response.IsSuccessStatusCode)
@@ -50,5 +44,10 @@ public partial class Form1 : Form
     private void btnSetWallpaper_Click(object sender, EventArgs e)
     {
         _imageService.SetWallpaper(picBox.ImageLocation);
+    }
+
+    private void textBoxPrompt_TextChanged(object sender, EventArgs e)
+    {
+        btnGenerate.Enabled = !string.IsNullOrWhiteSpace(textBoxPrompt.Text);
     }
 }
