@@ -1,6 +1,7 @@
 ﻿using AIWallpaperApp.Models;
 using Microsoft.Extensions.Options;
 using System.Net.Http.Json;
+using System.Runtime.InteropServices;
 
 namespace AIWallpaperApp.Services;
 
@@ -42,5 +43,17 @@ public class ImageService : IImageService
             return await httpClient.SendAsync(request);
         }
 
+    }
+
+    public int SetWallpaper(string imagePath)
+    {
+         const int SPI_SETDESKWALLPAPER = 20;
+         const int SPIF_UPDATEINFILE = 1;
+         const int SPIF_SENDCHANGE = 2;
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+
+        return SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, imagePath, SPIF_UPDATEINFILE | SPIF_SENDCHANGE);
     }
 }

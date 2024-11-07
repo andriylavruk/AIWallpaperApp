@@ -31,22 +31,23 @@
             textBoxPrompt = new TextBox();
             btnGenerate = new Button();
             picBox = new PictureBox();
+            btnSetWallpaper = new Button();
             ((System.ComponentModel.ISupportInitialize)picBox).BeginInit();
             SuspendLayout();
             // 
             // textBoxPrompt
             // 
-            textBoxPrompt.Location = new Point(236, 61);
+            textBoxPrompt.Location = new Point(151, 61);
             textBoxPrompt.Name = "textBoxPrompt";
             textBoxPrompt.PlaceholderText = "Enter your prompt";
-            textBoxPrompt.Size = new Size(220, 23);
+            textBoxPrompt.Size = new Size(293, 23);
             textBoxPrompt.TabIndex = 0;
             // 
             // btnGenerate
             // 
-            btnGenerate.Location = new Point(462, 61);
+            btnGenerate.Location = new Point(450, 61);
             btnGenerate.Name = "btnGenerate";
-            btnGenerate.Size = new Size(75, 23);
+            btnGenerate.Size = new Size(85, 23);
             btnGenerate.TabIndex = 1;
             btnGenerate.Text = "Generate";
             btnGenerate.UseVisualStyleBackColor = true;
@@ -61,11 +62,22 @@
             picBox.TabIndex = 2;
             picBox.TabStop = false;
             // 
+            // btnSetWallpaper
+            // 
+            btnSetWallpaper.Location = new Point(541, 61);
+            btnSetWallpaper.Name = "btnSetWallpaper";
+            btnSetWallpaper.Size = new Size(85, 23);
+            btnSetWallpaper.TabIndex = 3;
+            btnSetWallpaper.Text = "Set wallpaper";
+            btnSetWallpaper.UseVisualStyleBackColor = true;
+            btnSetWallpaper.Click += btnSetWallpaper_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnSetWallpaper);
             Controls.Add(picBox);
             Controls.Add(btnGenerate);
             Controls.Add(textBoxPrompt);
@@ -81,5 +93,6 @@
         private TextBox textBoxPrompt;
         private Button btnGenerate;
         private PictureBox picBox;
+        private Button btnSetWallpaper;
     }
 }

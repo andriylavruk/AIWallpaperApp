@@ -28,22 +28,27 @@ public partial class Form1 : Form
         if (response.IsSuccessStatusCode)
         {
             using (var ms = new MemoryStream(await response.Content.ReadAsByteArrayAsync()))
+            using (var image = Image.FromStream(ms))
             {
-                var image = Image.FromStream(ms);
-
                 var imageName = @"img_" + Guid.NewGuid() + ".jpg";
                 var directory = Directory.GetParent(Environment.CurrentDirectory)?.Parent?.Parent?.FullName;
+                var moveToDirectory = directory + "\\Images\\" + imageName;
 
                 image.Save(imageName, ImageFormat.Jpeg);
-                FileInfo img__ = new FileInfo(imageName);
-                img__.MoveTo(directory + "\\Images\\" + imageName);
+                var imageFileInfo = new FileInfo(imageName);
+                imageFileInfo.MoveTo(moveToDirectory);
 
-                picBox.Image = image;
+                picBox.ImageLocation = moveToDirectory;
             }
         }
         else
         {
             MessageBox.Show(response.StatusCode.ToString());
         }
+    }
+
+    private void btnSetWallpaper_Click(object sender, EventArgs e)
+    {
+        _imageService.SetWallpaper(picBox.ImageLocation);
     }
 }
