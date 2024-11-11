@@ -37,6 +37,7 @@ public partial class Form1 : Form
                 imageFileInfo.MoveTo(moveToDirectory);
 
                 picBox.ImageLocation = moveToDirectory;
+                lblImageTip.Visible = false;
             }
         }
         else
@@ -83,5 +84,7 @@ public partial class Form1 : Form
                 picBox.ImageLocation = fileDialog.FileName;
             }
         }
+
+        lblImageTip.Visible = false;
     }
 }

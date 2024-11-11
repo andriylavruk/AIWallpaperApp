@@ -34,15 +34,17 @@
             btnSetWallpaper = new Button();
             prgImageGeneration = new ProgressBar();
             btnSelecFile = new Button();
+            lblTitle = new Label();
+            lblImageTip = new Label();
             ((System.ComponentModel.ISupportInitialize)picBox).BeginInit();
             SuspendLayout();
             // 
             // textBoxPrompt
             // 
-            textBoxPrompt.Location = new Point(151, 61);
+            textBoxPrompt.Location = new Point(12, 61);
             textBoxPrompt.Name = "textBoxPrompt";
             textBoxPrompt.PlaceholderText = "Enter your prompt";
-            textBoxPrompt.Size = new Size(293, 23);
+            textBoxPrompt.Size = new Size(432, 23);
             textBoxPrompt.TabIndex = 0;
             textBoxPrompt.TextChanged += textBoxPrompt_TextChanged;
             // 
@@ -59,9 +61,11 @@
             // 
             // picBox
             // 
-            picBox.Location = new Point(151, 90);
+            picBox.BackColor = Color.White;
+            picBox.BorderStyle = BorderStyle.FixedSingle;
+            picBox.Location = new Point(12, 90);
             picBox.Name = "picBox";
-            picBox.Size = new Size(475, 303);
+            picBox.Size = new Size(705, 397);
             picBox.SizeMode = PictureBoxSizeMode.StretchImage;
             picBox.TabIndex = 2;
             picBox.TabStop = false;
@@ -79,11 +83,11 @@
             // prgImageGeneration
             // 
             prgImageGeneration.ForeColor = Color.FromArgb(0, 192, 0);
-            prgImageGeneration.Location = new Point(151, 399);
+            prgImageGeneration.Location = new Point(12, 493);
             prgImageGeneration.MarqueeAnimationSpeed = 10;
             prgImageGeneration.Name = "prgImageGeneration";
             prgImageGeneration.RightToLeft = RightToLeft.No;
-            prgImageGeneration.Size = new Size(475, 23);
+            prgImageGeneration.Size = new Size(705, 23);
             prgImageGeneration.Style = ProgressBarStyle.Marquee;
             prgImageGeneration.TabIndex = 4;
             prgImageGeneration.Visible = false;
@@ -98,19 +102,44 @@
             btnSelecFile.UseVisualStyleBackColor = true;
             btnSelecFile.Click += btnSelecFile_Click;
             // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 20F);
+            lblTitle.Location = new Point(218, 9);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(305, 37);
+            lblTitle.TabIndex = 6;
+            lblTitle.Text = "AI wallpaper application";
+            // 
+            // lblImageTip
+            // 
+            lblImageTip.BackColor = Color.White;
+            lblImageTip.Font = new Font("Segoe UI", 20F);
+            lblImageTip.Location = new Point(111, 241);
+            lblImageTip.Name = "lblImageTip";
+            lblImageTip.Size = new Size(507, 94);
+            lblImageTip.TabIndex = 7;
+            lblImageTip.Text = "Enter prompt and generate an image or select an image from the folder";
+            lblImageTip.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(729, 527);
+            Controls.Add(lblImageTip);
+            Controls.Add(lblTitle);
             Controls.Add(btnSelecFile);
             Controls.Add(prgImageGeneration);
             Controls.Add(btnSetWallpaper);
             Controls.Add(picBox);
             Controls.Add(btnGenerate);
             Controls.Add(textBoxPrompt);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "Form1";
-            Text = "Form1";
+            Text = "AIWallpaperApp";
             ((System.ComponentModel.ISupportInitialize)picBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -124,5 +153,7 @@
         private Button btnSetWallpaper;
         private ProgressBar prgImageGeneration;
         private Button btnSelecFile;
+        private Label lblTitle;
+        private Label lblImageTip;
     }
 }
