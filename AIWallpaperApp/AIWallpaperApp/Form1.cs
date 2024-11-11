@@ -16,8 +16,12 @@ public partial class Form1 : Form
 
     private async void btnGenerate_Click(object sender, EventArgs e)
     {
+        SetUIStateAfter_btnGenerate_Click();
+
         var prompt = textBoxPrompt.Text;
         var response = await _imageService.GenerateImageAsync(prompt);
+
+        RestoreUIStateAfter_btnGenerate_Click();
 
         if (response.IsSuccessStatusCode)
         {
@@ -49,5 +53,19 @@ public partial class Form1 : Form
     private void textBoxPrompt_TextChanged(object sender, EventArgs e)
     {
         btnGenerate.Enabled = !string.IsNullOrWhiteSpace(textBoxPrompt.Text);
+    }
+
+    private void SetUIStateAfter_btnGenerate_Click()
+    {
+        btnGenerate.Enabled = false;
+        prgImageGeneration.Visible = true;
+        prgImageGeneration.MarqueeAnimationSpeed = 10;
+    }
+
+    private void RestoreUIStateAfter_btnGenerate_Click()
+    {
+        prgImageGeneration.MarqueeAnimationSpeed = 0;
+        prgImageGeneration.Visible = false;
+        btnGenerate.Enabled = true;
     }
 }

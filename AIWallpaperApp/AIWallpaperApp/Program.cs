@@ -13,6 +13,7 @@ internal static class Program
         var host = HostBuilderService.CreateHostBuilder().Build();
         ServiceProvider = host.Services;
 
+        Application.EnableVisualStyles();
         Application.Run(ServiceProvider.GetRequiredService<Form1>());
     }
 }

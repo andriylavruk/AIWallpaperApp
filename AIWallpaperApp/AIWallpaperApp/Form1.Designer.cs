@@ -32,6 +32,7 @@
             btnGenerate = new Button();
             picBox = new PictureBox();
             btnSetWallpaper = new Button();
+            prgImageGeneration = new ProgressBar();
             ((System.ComponentModel.ISupportInitialize)picBox).BeginInit();
             SuspendLayout();
             // 
@@ -74,11 +75,24 @@
             btnSetWallpaper.UseVisualStyleBackColor = true;
             btnSetWallpaper.Click += btnSetWallpaper_Click;
             // 
+            // prgImageGeneration
+            // 
+            prgImageGeneration.ForeColor = Color.FromArgb(0, 192, 0);
+            prgImageGeneration.Location = new Point(151, 399);
+            prgImageGeneration.MarqueeAnimationSpeed = 10;
+            prgImageGeneration.Name = "prgImageGeneration";
+            prgImageGeneration.RightToLeft = RightToLeft.No;
+            prgImageGeneration.Size = new Size(475, 23);
+            prgImageGeneration.Style = ProgressBarStyle.Marquee;
+            prgImageGeneration.TabIndex = 4;
+            prgImageGeneration.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(prgImageGeneration);
             Controls.Add(btnSetWallpaper);
             Controls.Add(picBox);
             Controls.Add(btnGenerate);
@@ -96,5 +110,6 @@
         private Button btnGenerate;
         private PictureBox picBox;
         private Button btnSetWallpaper;
+        private ProgressBar prgImageGeneration;
     }
 }
