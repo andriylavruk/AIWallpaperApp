@@ -33,6 +33,7 @@
             picBox = new PictureBox();
             btnSetWallpaper = new Button();
             prgImageGeneration = new ProgressBar();
+            btnSelecFile = new Button();
             ((System.ComponentModel.ISupportInitialize)picBox).BeginInit();
             SuspendLayout();
             // 
@@ -87,11 +88,22 @@
             prgImageGeneration.TabIndex = 4;
             prgImageGeneration.Visible = false;
             // 
+            // btnSelecFile
+            // 
+            btnSelecFile.Location = new Point(632, 61);
+            btnSelecFile.Name = "btnSelecFile";
+            btnSelecFile.Size = new Size(85, 23);
+            btnSelecFile.TabIndex = 5;
+            btnSelecFile.Text = "Select file";
+            btnSelecFile.UseVisualStyleBackColor = true;
+            btnSelecFile.Click += btnSelecFile_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnSelecFile);
             Controls.Add(prgImageGeneration);
             Controls.Add(btnSetWallpaper);
             Controls.Add(picBox);
@@ -111,5 +123,6 @@
         private PictureBox picBox;
         private Button btnSetWallpaper;
         private ProgressBar prgImageGeneration;
+        private Button btnSelecFile;
     }
 }

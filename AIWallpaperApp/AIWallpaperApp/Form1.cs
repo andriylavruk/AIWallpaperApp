@@ -68,4 +68,20 @@ public partial class Form1 : Form
         prgImageGeneration.Visible = false;
         btnGenerate.Enabled = true;
     }
+
+    private void btnSelecFile_Click(object sender, EventArgs e)
+    {
+        using (var fileDialog = new OpenFileDialog())
+        {
+            var directory = Directory.GetParent(Environment.CurrentDirectory)?.Parent?.Parent?.FullName;
+
+            fileDialog.InitialDirectory = directory + "\\Images";
+            fileDialog.Filter = "Image files(*.jpeg; *.jpg; *.png;)|*.jpeg; *.jpg; *.png;";
+
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                picBox.ImageLocation = fileDialog.FileName;
+            }
+        }
+    }
 }
