@@ -16,13 +16,16 @@ public class ImageService : IImageService
 
     public async Task<HttpResponseMessage> GenerateImageAsync(string prompt)
     {
+        var random = new Random();
+        var randomSeed = random.Next(0, int.MaxValue);
+
         var data = new
         {
             prompt = prompt!,
             negative_prompt = "low quality, blurry",
             steps = 25,
             guidance_scale = 5.5,
-            seed = 98552302,
+            seed = randomSeed,
             sampler = "euler",
             scheduler = "sgm_uniform",
             width = 1792,
